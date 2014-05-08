@@ -90,6 +90,4 @@ public class UserController {
 
 	    return "/adm-oscar/xls/"+nomeArquivo;
 	  }
-
-	
 }

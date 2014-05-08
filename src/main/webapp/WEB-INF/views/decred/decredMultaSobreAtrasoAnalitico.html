@@ -64,7 +64,7 @@
 		function xls()
 		{
 			$.ajax({		
-				url: "http://localhost:8080/adm-oscar/decredMultaSobreAtrasoAnalitico/json",				
+				url: "http://localhost:8080/adm-oscar/decredMultaSobreAtrasoAnalitico/xls",				
 		    	data: {dataInicial : $('#dataInicial').val(), dataFinal: $('#dataFinal').val()},					
 		    	type: 'GET'		    	
 			}).success(function(data){

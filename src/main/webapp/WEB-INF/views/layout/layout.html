@@ -9,7 +9,7 @@
                        
         <meta charset="utf-8" />
         
-		<title>ADM - OSCAR</title>
+		<title>Empty Page - Ace Admin</title>
 
 		<meta name="description" content="Minimal empty page" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -51,8 +51,8 @@
 				<div class="container-fluid">
 					<a href="#" class="brand">
 						<small>
-							<i class="icon-dashboard"></i>
-							ADM - OSCAR
+							<i class="icon-leaf"></i>
+							Ace Admin
 						</small>
 					</a><!--/.brand-->
 
@@ -354,7 +354,20 @@
 		<!--window.jQuery || document.write("<script src='../assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");-->
 		</script>
 		
-		<script src="../assets/js/jquery-2.0.3.min.js" th:src="@{/assets/js/jquery-2.0.3.min.js}"></script>
+	<script src="../assets/js/jquery-2.0.3.min.js" th:src="@{/assets/js/jquery-2.0.3.min.js}"></script>
+		
+	<!-- 		<script src="../assets/js/jquery-2.0.3.min.js" th:src="@{/assets/js/jquery-ui-1.10.3.custom.min.js}"></script>
+		
+		<script src="../assets/js/jquery-2.0.3.min.js" th:src="@{/assets/js/jquery.ui.datepicker-pt-BR.js}"></script>
+		
+		<script>
+		
+			$(function() {	            
+	            $( '.dataFormatada' ).datepicker({ numberOfMonths: 2, dateFormat: 'dd/mm/yy' });
+	        });
+			
+		</script>
+		-->
 
 		<!--<![endif]-->
 
@@ -378,7 +391,5 @@
 
 		<!--inline scripts related to this page-->
 		<div layout:fragment="scripts"></div>
-		
-
     </body>
 </html>
