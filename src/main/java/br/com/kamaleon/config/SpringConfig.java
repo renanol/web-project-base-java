@@ -25,20 +25,21 @@ import java.util.Map;
 @EnableTransactionManagement
 public class SpringConfig {
 
-    //初始化数据源
+    //åˆ�å§‹åŒ–æ•°æ�®æº�
     @Bean
     public ComboPooledDataSource dataSource() throws PropertyVetoException {
 
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
-        dataSource.setDriverClass("org.postgresql.Driver");
-        dataSource.setJdbcUrl("jdbc:postgresql://localhost:5432/teste");
-        dataSource.setUser("postgres");
-        dataSource.setPassword("postgres");
+        dataSource.setDriverClass("oracle.jdbc.OracleDriver");
+        dataSource.setJdbcUrl("jdbc:oracle:thin:@201.28.44.202:1525:OSCARFULL");
+        dataSource.setUser("mstore");
+        dataSource.setPassword("mstore_123_orcl");
         dataSource.setInitialPoolSize(10);
         dataSource.setMaxPoolSize(100);
         dataSource.setMaxIdleTime(60);
         dataSource.setIdleConnectionTestPeriod(60);
         dataSource.setAutoCommitOnClose(true);
+		
         return dataSource;
     }
 
@@ -67,10 +68,10 @@ public class SpringConfig {
     public Map<String, String> jpaPropertyMap()
     {
         Map<String, String> map = new HashMap<String, String>();
-        map.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+        map.put("hibernate.dialect", "org.hibernate.dialect.OracleDialect");
         map.put("hibernate.show_sql", "true");
         map.put("hibernate.format_sql", "false");
-        map.put("hibernate.hbm2ddl.auto", "update");
+        map.put("hibernate.hbm2ddl.auto", "none");
         return map;
     }
 

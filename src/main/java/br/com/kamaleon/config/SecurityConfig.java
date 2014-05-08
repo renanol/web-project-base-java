@@ -37,9 +37,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth
+       
+
+		String sql = "SELECT U.LOGIN AS username, M.CODIGO AS password , 1"
+				+ " FROM   T_METAIDENTIFICADORPORTAL M,"
+				+ " T_USUARIO U, T_GRUPOUSUARIO G"
+				+ " WHERE  "
+				+ " U.IDUSUARIO = M.IDUSUARIO AND"
+				+ " U.IDUSUARIO = G.IDUSUARIO AND"
+				+ " G.IDGRUPO IN (1,109) AND"
+				+ " U.STATUS = 'A' AND"
+				+ " U.LOGIN = ? ";
+    	
+    	
+    	auth
             .jdbcAuthentication().dataSource(dataSource)
-                .usersByUsernameQuery("select username,password,true from users where username = ?")
+                .usersByUsernameQuery(sql)
                 //.authoritiesByUsernameQuery("select username,authority from authorities where username = ?")
                 .and()
             .eraseCredentials(false);
