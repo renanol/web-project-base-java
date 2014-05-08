@@ -1,0 +1,87 @@
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+
+repositories
+{
+    mavenLocal()
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.gradle.api.plugins:gradle-tomcat-plugin:1.2.2'
+    }
+}
+
+dependencies
+{
+    //spring
+    def springVersion = '4.0.2.RELEASE'
+    compile "org.springframework:spring-webmvc:${springVersion}"
+    compile "org.springframework:spring-orm:${springVersion}"
+
+    //security
+    def securityVersion = '3.2.1.RELEASE'
+    compile "org.springframework.security:spring-security-web:${securityVersion}"
+    compile "org.springframework.security:spring-security-config:${securityVersion}"
+
+    //spring-data-jpa
+    def springDataJpaVersion = '1.5.0.RELEASE'
+    compile "org.springframework.data:spring-data-jpa:${springDataJpaVersion}"
+
+    //hibernate
+    def hibernateVersion = '4.3.1.Final'
+    compile "org.hibernate:hibernate-entitymanager:${hibernateVersion}"
+    compile "org.hibernate:hibernate-c3p0:${hibernateVersion}"
+
+    //mysqlDrive
+    //def mysqlDriverVersion = '5.1.29'
+    //compile "mysql:mysql-connector-java:${mysqlDriverVersion}"
+	compile 'org.postgresql:postgresql:9.3-1100-jdbc4'
+	//compile 'com.oracle:oracle:10'
+	
+    
+
+    //fileupload
+    def fileuploadVersion = '1.3.1'
+    compile "commons-fileupload:commons-fileupload:${fileuploadVersion}"
+
+    //jstl
+    def jstlVersion = '1.2'
+    compile "jstl:jstl:${jstlVersion}"
+
+    //slf4j
+    def slf4jVersion = '1.7.6'
+    compile "org.slf4j:slf4j-api:${slf4jVersion}"
+
+    //logback
+    def logbackExtVersion = '0.1.1'
+    compile "org.logback-extensions:logback-ext-spring:${logbackExtVersion}"
+
+    //servletApi
+    def servletApiVersion = '3.0.1'
+    providedCompile "javax.servlet:javax.servlet-api:${servletApiVersion}"
+    
+    //thymeleaf
+	compile 'org.thymeleaf:thymeleaf-spring4:2.1.2.RELEASE'	
+	compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity3:2.1.1.RELEASE'
+	compile 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:1.2.3'
+
+	//json
+	compile 'org.codehaus.jackson:jackson-core-asl:1.9.4'
+	compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.4'
+	
+	//Excel
+	compile 'org.apache.poi:poi:3.6'
+   
+
+}
+
+tasks.withType(JavaCompile)
+{
+    options.encoding = "UTF-8";
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" 
+		xmlns:th="http://www.thymeleaf.org"  
+		xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout/layout">
+<head>
+        <title>Home</title>
+</head>
+<body>
+	<!-- Any content you put in the div fragment below will appear on the page-->
+	<div layout:fragment="content">	
+	
+		<!--PAGE CONTENT BEGINS-->
+		<h3>
+			Hello! Welcome to the sample project.
+		</h3>   
+
+		<p th:text="${#ctx.httpServletRequest.contextPath}"></p>
+		<!--PAGE CONTENT ENDS-->
+				
+	</div>
+	
+	<div layout:fragment="scripts">
+	
+		<script th:inline="javascript">
+			/*<![CDATA[*/
+			    			
+			    var url = /*[[${#ctx.httpServletRequest.contextPath}]]*/;
+						    			    
+			    $.ajax({
+			    	url: url + '/json',
+			    	type: 'GET'
+			    	
+			    }).success(function(data){
+			    	
+			    	console.log(data);
+			    	
+			    });
+			    
+			/*]]>*/
+		</script>
+	
+		<script type="text/javascript">						
+			$.ajax({
+		    	url: '/json',
+		    	type: 'GET'
+		    	
+		    }).success(function(data){
+		    	console.log(data);
+		    	
+		    });
+		</script>
+	
+	</div>		
+		
+</body>
+</html>

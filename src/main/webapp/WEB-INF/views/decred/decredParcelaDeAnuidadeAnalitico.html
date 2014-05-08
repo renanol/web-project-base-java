@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" 
+		xmlns:th="http://www.thymeleaf.org"  
+		xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout/layout">
+<head>
+        <title>ADM-OSCAR-KAMALEON</title>
+</head>
+<body>
+	<!-- Any content you put in the div fragment below will appear on the page-->
+	<div class="container" layout:fragment="content">
+	
+		<div class="row">
+			<div class="span8">
+			<h3>
+				DECRED - Parcela de Anuidade (Analitico)
+			</h3>  
+            <fieldset>
+                <div class="form-actions">
+                <label for="dataInicial">Data Inicial:</label>
+                <input type="text" id="dataInicial" name="dataFinal"/>        
+                <br/>
+                <label for="dataFinal">Data Final:</label>
+                <input type="text" id="dataFinal" name="dataFinal"/>        
+                    <button onClick="javascript:consulta()" class="btn">Filtrar</button>
+                </div>
+            </fieldset>	
+			<table id="tabela" class="table table-striped table-bordered table-hover">
+			  <thead>
+			    <tr>
+			      <th>Data</th>
+			      <th>Valor R$</th>
+			      <th>Codigo Cliente</th>	      	      
+			    </tr>
+			  </thead>
+			  <tbody>
+			  </tbody>
+			</table>
+				            
+			</div>
+		</div>
+	
+	<script type="text/javascript">
+	
+		function consulta()
+		{
+			
+			$.ajax({		
+		    	url: "http://localhost:8080/adm-oscar/decredParcelaDeAnuidadeAnalitico/json",				
+		    	data: {dataInicial : $('#dataInicial').val(), dataFinal: $('#dataFinal').val()},				
+		    	type: 'GET'		    	
+			}).success(function(data){
+				
+				$("#tabela > tbody").empty();
+				
+				$.each( data, function( key, value ) {
+
+					var conteudo = "<tr>";
+					conteudo += "<td>"+value[0]+"</td>"
+					conteudo += "<td>"+value[2]+"</td>"
+					conteudo += "<td>"+value[3]+"</td>"
+					conteudo += "</tr>"
+					$("#tabela > tbody").append(conteudo);
+					});
+				
+				
+			})	
+			
+		}
+		</script>
+	
+	</div>
+
+</body>
+</html>
