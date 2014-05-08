@@ -10,8 +10,6 @@
 	<!-- Any content you put in the div fragment below will appear on the page-->
 	<div class="container" layout:fragment="content">
 	
-		<div class="row">
-			<div class="span8">
 			<h3>
 				DECRED - Encargos de cobranca por desconto (Analitico)
 			</h3>  
@@ -23,6 +21,7 @@
                 <label for="dataFinal">Data Final:</label>
                 <input type="text" id="dataFinal" name="dataFinal"/>        
                     <button onClick="javascript:consulta()" class="btn">Filtrar</button>
+                    <button onClick="javascript:xls()" class="btn">XLS</button>
                 </div>
             </fieldset>	
 			<table id="tabela" class="table table-striped table-bordered table-hover">
@@ -38,7 +37,6 @@
 			</table>
 				            
 			</div>
-		</div>
 	
 	<script type="text/javascript">
 	
@@ -67,9 +65,23 @@
 			})	
 			
 		}
+		
+		function xls()
+		{
+			
+			$.ajax({		
+				url: "http://localhost:8080/adm-oscar/decredEncargosDeCobrancaPorDescontoAnalitico/json",				
+		    	data: {dataInicial : $('#dataInicial').val(), dataFinal: $('#dataFinal').val()},					
+		    	type: 'GET'		    	
+			}).success(function(data){
+				
+				alert(data);
+				window.open(data,"XLS","width=800, height=600, directories=no, location=no, menubar=no, scrollbars=no,status=no,toolbar=no, resizable=no");
+			})	
+			
+		}
 		</script>
 	
-	</div>
 
 </body>
 </html>
