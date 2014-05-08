@@ -355,6 +355,19 @@
 		</script>
 		
 		<script src="../assets/js/jquery-2.0.3.min.js" th:src="@{/assets/js/jquery-2.0.3.min.js}"></script>
+		
+		<script src="../assets/js/jquery-2.0.3.min.js" th:src="@{/assets/js/jquery.ui-1.10.3.custom.min.js}"></script>
+		
+		<script src="../assets/js/jquery-2.0.3.min.js" th:src="@{/assets/js/jquery.ui.datepicker-pt-BR.js}"></script>
+		
+		<script>
+		
+			$(function() {	            
+	            $( '.dataFormatada' ).datepicker({ numberOfMonths: 2, dateFormat: 'dd/mm/yy' });
+	        });
+			
+		</script>
+		
 
 		<!--<![endif]-->
 
