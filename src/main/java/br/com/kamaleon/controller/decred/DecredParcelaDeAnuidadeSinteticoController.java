@@ -49,7 +49,7 @@ public class DecredParcelaDeAnuidadeSinteticoController {
 		String url = arquivo.getAbsolutePath(); 
 		List<Object[]> lista = service.decredParcelaDeAnuidadeSintetico(dataInicial, dataFinal); 
 		
-		String[] colunas = new String[]{"Nome", "Login", "Senha"};
+		String[] colunas = new String[]{"Mes Base", "Valor Total", "Quantidade de Registros"};
 		
 	    HSSFWorkbook wb = new HSSFWorkbook();
 	    HSSFSheet plan1 = null;
@@ -73,9 +73,9 @@ public class DecredParcelaDeAnuidadeSinteticoController {
 	          row = plan1.createRow(linha);
 	        }
 	        linha++;
-	        row.createCell(0).setCellValue(coluna[0]+"");
-	        row.createCell(1).setCellValue(coluna[1]+"");
-	        row.createCell(2).setCellValue(coluna[2]+"");
+	        row.createCell(0).setCellValue(coluna[1]+"");
+	        row.createCell(1).setCellValue(coluna[2]+"");
+	        row.createCell(2).setCellValue(coluna[3]+"");
 	      }
 	      wb.write(file);
 

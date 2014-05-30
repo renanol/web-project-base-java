@@ -90,6 +90,10 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
     	
+    	registry.addResourceHandler("/highcharts/**").addResourceLocations("/resources/highcharts/").setCachePeriod(31556926);
+    	registry.addResourceHandler("/highcharts/adapters/**").addResourceLocations("/resources/highcharts/adapters/").setCachePeriod(31556926);
+    	registry.addResourceHandler("/highcharts/modules/**").addResourceLocations("/resources/highcharts/modules/").setCachePeriod(31556926);
+    	registry.addResourceHandler("/highcharts/themes/**").addResourceLocations("/resources/highcharts/themes/").setCachePeriod(31556926);
         registry.addResourceHandler("/assets/js/**").addResourceLocations("/resources/assets/js/").setCachePeriod(31556926);
         registry.addResourceHandler("/assets/css/**").addResourceLocations("/resources/assets/css/").setCachePeriod(31556926);
         registry.addResourceHandler("/assets/img/**").addResourceLocations("/resources/assets/img/").setCachePeriod(31556926);

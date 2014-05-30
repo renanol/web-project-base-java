@@ -24,14 +24,14 @@ import java.util.Map;
 @EnableJpaRepositories(basePackages = "br.com.kamaleon.dao")
 @EnableTransactionManagement
 public class SpringConfig {
-
-    //åˆ�å§‹åŒ–æ•°æ�®æº�
+   
     @Bean
     public ComboPooledDataSource dataSource() throws PropertyVetoException {
 
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
         dataSource.setDriverClass("oracle.jdbc.OracleDriver");
-        dataSource.setJdbcUrl("jdbc:oracle:thin:@201.28.44.202:1525:OSCARFULL");
+//        dataSource.setJdbcUrl("jdbc:oracle:thin:@201.28.44.202:1525:OSCARFULL");
+        dataSource.setJdbcUrl("jdbc:oracle:thin:@172.16.99.5:1521:OSCARFULL");
         dataSource.setUser("mstore");
         dataSource.setPassword("mstore_123_orcl");
         dataSource.setInitialPoolSize(10);

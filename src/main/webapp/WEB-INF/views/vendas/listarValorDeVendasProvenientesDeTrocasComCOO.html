@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt" 
+		xmlns:th="http://www.thymeleaf.org"  
+		xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout/layout">
+<head>
+        <title>ADM-OSCAR-KAMALEON</title>
+</head>
+<body>
+	<!-- Any content you put in the div fragment below will appear on the page-->
+	<div class="container" layout:fragment="content">
+	
+			<h3>
+				Listar Valor de Vendas Provenientes de Trocas com COO
+			</h3>            
+			
+            <fieldset>
+                <div class="form-actions">
+                <label for="loja">Loja (Sigla):</label>
+                <select id="loja" name="loja" th:field="*{listaEstabelecimento}">
+                <option value="">-</option> 
+				  <option th:each="type : ${listaEstabelecimento}" 
+				          th:value="${type[0]}" 
+				          th:text="${type[1]}"></option>
+				</select>       
+               <label for="dataInicial">Data Inicial:</label>
+                <input type="text" class="dataFormatada" id="dataInicial" name="dataInicial"/>        
+                <label for="dataFinal">Data Final:</label>
+                <input type="text" class="dataFormatada" id="dataFinal" name="dataFinal"/> 
+                    <button onClick="javascript:consulta()" class="btn">Filtrar</button>
+                    <button onClick="javascript:xls()" class="btn">XLS</button>
+                </div>
+            </fieldset>	
+			<table id="tabela" class="table table-striped table-bordered table-hover">
+			  <thead>
+			    <tr>
+			      <th>Loja</th>
+			      <th>M&ecirc;s de Refer&ecirc;ncia</th>
+			      <th>Valor R$</th>	      	      
+			    </tr>
+			  </thead>
+			  <tbody>
+			  </tbody>
+			</table>
+				            
+	<script src="assets/js/script.js" th:src="@{/assets/js/script.js}"></script>
+	<script type="text/javascript">
+	
+		function consulta()
+		{
+			
+			$.ajax({		     
+		    	url: "/adm-oscar/listarValorDeVendasProvenientesDeTrocasComCOO/json",				
+		    	data: {loja: $('#loja').val(), dataInicial: $('#dataInicial').val(), dataFinal: $('#dataFinal').val()},				
+		    	type: 'GET'		    	
+			}).success(function(data){
+				
+				$("#tabela > tbody").empty();
+				
+				$.each( data, function( key, value ) {
+
+					var conteudo = "<tr>";
+					conteudo += "<td>"+value[1]+"</td>";
+					conteudo += "<td>"+value[4]+"</td>";
+					conteudo += "<td>"+ moeda(value[5], 2, ',', '.') + "</td>";
+					conteudo += "</tr>";
+					$("#tabela > tbody").append(conteudo);
+					});
+			})	
+		}
+		function xls()
+		{
+			$.ajax({		
+				url: "/adm-oscar/listarValorDeVendasProvenientesDeTrocasComCOO/xls",				
+		    	data: {loja: $('#loja').val(), dataInicial: $('#dataInicial').val(), dataFinal: $('#dataFinal').val()},				
+		    	type: 'GET'		    	
+			}).success(function(data){
+				
+				window.open(data,"XLS","width=800, height=600, directories=no, location=no, menubar=no, scrollbars=no,status=no,toolbar=no, resizable=no");
+			})	
+		}
+		
+		</script>
+	
+	</div>
+
+</body>
+</html>

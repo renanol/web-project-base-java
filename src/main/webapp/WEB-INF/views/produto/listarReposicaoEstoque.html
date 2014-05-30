@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt" 
+		xmlns:th="http://www.thymeleaf.org"  
+		xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout/layout">
+<head>
+        <title>ADM-OSCAR-KAMALEON</title>
+</head>
+<body>
+	<!-- Any content you put in the div fragment below will appear on the page-->
+	<div class="container" layout:fragment="content">
+	
+			<h3>
+				Listar Reposi&ccedil;&atilde;o de estoque
+			</h3>            
+			
+            <fieldset>
+                <div class="form-actions">
+                <label for="usuario">Usu&aacute;rio:</label>
+                <input type="text" id="usuario" name="usuario"/>        
+               <label for="dataInicial">Data Inicial:</label>
+                <input type="text" class="dataFormatada" id="dataInicial" name="dataInicial"/>        
+                <label for="dataFinal">Data Final:</label>
+                <input type="text" class="dataFormatada" id="dataFinal" name="dataFinal"/> 
+                    <button onClick="javascript:consulta()" class="btn">Filtrar</button>
+                    <button onClick="javascript:xls()" class="btn">XLS</button>
+                </div>
+            </fieldset>	
+			<table id="tabela" class="table table-striped table-bordered table-hover">
+			  <thead>
+			    <tr>
+			      <th>ID_USUARIO</th>
+				  <th>NM_USUARIO</th>
+				  <th>NM_LOGIN</th>
+				  <th>DT_REFERENCIA</th>
+				  <th>DT_INICIAL</th>
+				  <th>DT_FINAL</th>
+				  <th>DS_TEMPO_DURACAO</th>
+				  <th>NM_LOJA_PERMISSAO</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  </tbody>
+			</table>
+				            
+	<script src="assets/js/script.js" th:src="@{/assets/js/script.js}"></script>
+	<script type="text/javascript">
+	
+		function consulta()
+		{
+			
+			$.ajax({		     
+		    	url: "/adm-oscar/listarReposicaoEstoque/json",			
+		    	data: {usuario: $('#usuario').val(), dataInicial: $('#dataInicial').val(), dataFinal: $('#dataFinal').val()},				
+		    	type: 'GET'		    	
+			}).success(function(data){
+				
+				$("#tabela > tbody").empty();
+				
+				$.each( data, function( key, value ) {
+
+					var conteudo = "<tr>";
+					conteudo += "<td>"+value[0]+"</td>";
+					conteudo += "<td>"+value[1]+"</td>";
+					conteudo += "<td>"+value[2]+"</td>";
+					conteudo += "<td>"+formatarDataDDMMYYYY(value[3])+"</td>";
+					conteudo += "<td>"+formatarDataDDMMYYYY(value[4])+"</td>";
+					conteudo += "<td>"+formatarDataDDMMYYYY(value[5])+"</td>";
+					conteudo += "<td>"+value[6]+"</td>";
+					conteudo += "<td>"+value[7]+"</td>";
+					conteudo += "</tr>";
+					$("#tabela > tbody").append(conteudo);
+					});
+			})	
+		}
+		function xls()
+		{
+			$.ajax({		
+				url: "/adm-oscar/listarReposicaoEstoque/xls",				
+		    	data: {codigoProduto: $('#codigoProduto').val(), dataInicial: $('#dataInicial').val(), dataFinal: $('#dataFinal').val()},				
+		    	type: 'GET'		    	
+			}).success(function(data){
+				
+				window.open(data,"XLS","width=800, height=600, directories=no, location=no, menubar=no, scrollbars=no,status=no,toolbar=no, resizable=no");
+			})	
+		}
+		</script>
+	
+	</div>
+
+</body>
+</html>

@@ -19,6 +19,9 @@
 		<link href="assets/css/bootstrap.min.css" th:href="@{/assets/css/bootstrap.min.css}" rel="stylesheet" />
 		<link href="assets/css/bootstrap-responsive.min.css" th:href="@{/assets/css/bootstrap-responsive.min.css}" rel="stylesheet" />
 		<link rel="stylesheet" href="assets/css/font-awesome.min.css" th:href="@{/assets/css/font-awesome.min.css}"/>
+		
+				<link href="assets/css/bootstrap-responsive.min.css" th:href="@{/assets/css/ui-lightness/jquery-ui-1.10.4.custom.css}" rel="stylesheet" />
+		
 
 		<!--[if IE 7]>
 		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css"th:href="@{/assets/css/font-awesome-ie7.min.css}" />
@@ -51,8 +54,8 @@
 				<div class="container-fluid">
 					<a href="#" class="brand">
 						<small>
-							<i class="icon-leaf"></i>
-							Ace Admin
+							<i class="icon-dashboard"></i>
+							ADM - Oscar
 						</small>
 					</a><!--/.brand-->
 
@@ -237,7 +240,7 @@
 					<li>
 						<a href="#" class="dropdown-toggle">
 							<i class="icon-male"></i>
-							<span class="menu-text"> Usuarios </span>
+							<span class="menu-text"> Usu&aacute;rios </span>
 
 							<b class="arrow icon-angle-down"></b>
 						</a>
@@ -249,8 +252,227 @@
 									Listar Senhas
 								</a>
 							</li>
+							<li>
+								<a  th:href="@{/funcionarioSemUsuario}">
+									<i class="icon-double-angle-right"></i>
+									Funcion&aacute;rios sem Usu&aacute;rio
+								</a>
+							</li>
+							<li>
+								<a  th:href="@{/usuarioFuncionario}">
+									<i class="icon-double-angle-right"></i>
+									Listar todos Usu&aacute;rios e Funcion&aacute;rios
+								</a>
+							</li>
+							<li>
+								<a  th:href="@{/usuarioGrupo}">
+									<i class="icon-double-angle-right"></i>
+									Listar Usu&aacute;rios e Grupo Megastore
+								</a>
+							</li>
+							<li>
+								<a  th:href="@{/usuarioGrupoCards}">
+									<i class="icon-double-angle-right"></i>
+									Listar Usu&aacute;rios e Grupo Cards
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-download-alt"></i>
+							<span class="menu-text"> Compras </span>
 
-							
+							<b class="arrow icon-angle-down"></b>
+						</a>
+
+						<ul class="submenu">
+							<li>
+								<a  th:href="@{/notaFiscalDuplicada}">
+									<i class="icon-double-angle-right"></i>
+									Notas Fiscais Duplicadas
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-heart"></i>
+							<span class="menu-text"> Fidelidade </span>
+
+							<b class="arrow icon-angle-down"></b>
+						</a>
+
+						<ul class="submenu">
+							<li>
+								<a  th:href="@{/pontuacaoFidelidadePorFaixa}">
+									<i class="icon-double-angle-right"></i>
+									Pontua&ccedil;&atilde;o Fidelidade por Faixa
+								</a>
+							</li>
+							<li>
+								<a  th:href="@{/premiosRetiradosNoFestClub}">
+									<i class="icon-double-angle-right"></i>
+									Pr&ecirc;mios Retirados no Fest Club
+								</a>
+							</li>
+							<li>
+								<a  th:href="@{/fidelidadeMegaCards}">
+									<i class="icon-double-angle-right"></i>
+									Fidelidade Mega x Cards
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-money"></i>
+							<span class="menu-text"> Financeiro </span>
+
+							<b class="arrow icon-angle-down"></b>
+						</a>
+
+						<ul class="submenu">
+							<li>
+								<a  th:href="@{/listarRateiosDespesaDivergentes}">
+									<i class="icon-double-angle-right"></i>
+									Despesas com Rateios Divergentes
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-barcode"></i>
+							<span class="menu-text"> Produto </span>
+
+							<b class="arrow icon-angle-down"></b>
+						</a>
+
+						<ul class="submenu">
+							<li>
+								<a  th:href="@{/listarProdutosNovosQueNaoEstaoNoEcommerce}">
+									<i class="icon-double-angle-right"></i>
+									Produtos Novos que n&atilde;o est&atilde;o no Ecommerce
+								</a>
+							</li>
+							<li>
+								<a  th:href="@{/listarProdutosComPrecoDeVendaDiferente}">
+									<i class="icon-double-angle-right"></i>
+									Produtos com pre&ccedil;os de venda diferente
+								</a>
+							</li>
+							<li>
+								<a  th:href="@{/listarProdutosComNomeDeImpressaoDiferente}">
+									<i class="icon-double-angle-right"></i>
+									Produtos com Nome de Impress&atilde;o Diferente
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-archive"></i>
+							<span class="menu-text"> Estoque </span>
+
+							<b class="arrow icon-angle-down"></b>
+						</a>
+
+						<ul class="submenu">
+							<li>
+								<a  th:href="@{/listarProdutosComDiferencaEntreEstoqueKardex}">
+									<i class="icon-double-angle-right"></i>
+									Produtos com diferen&ccedil;a entre Estoque x Kardex
+								</a>
+							</li>
+							<li>
+								<a  th:href="@{/listarReposicaoEstoque}">
+									<i class="icon-double-angle-right"></i>
+									Reposi&ccedil;&atilde;o de estoque
+								</a>
+							</li>
+							<li>
+								<a  th:href="@{/listarRemessas}">
+									<i class="icon-double-angle-right"></i>
+									Remessa
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-group"></i>
+							<span class="menu-text"> Cliente </span>
+
+							<b class="arrow icon-angle-down"></b>
+						</a>
+
+						<ul class="submenu">
+							<li>
+								<a  th:href="@{/cadastroClientesCardsMega}">
+									<i class="icon-double-angle-right"></i>
+									Cadastro clientes Cards x Mega
+								</a>
+							</li>
+							<li>
+								<a  th:href="@{/clienteSemFestClub}">
+									<i class="icon-double-angle-right"></i>
+									Clientes sem Fest Club
+								</a>
+							</li>
+							<li>
+								<a  th:href="@{/clientesComMaisDeUmCartaoNoCards}">
+									<i class="icon-double-angle-right"></i>
+									Clientes com mais de um cart&atilde;o
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-star"></i>
+							<span class="menu-text"> Vendas </span>
+
+							<b class="arrow icon-angle-down"></b>
+						</a>
+
+						<ul class="submenu">
+							<li>
+								<a  th:href="@{/listarValorDeVendasProvenientesDeTrocasComCOO}">
+									<i class="icon-double-angle-right"></i>
+									Valor de Vendas Provenientes de Troca com COO
+								</a>
+							</li>
+							<li>
+								<a  th:href="@{/listarVendasComCOO}">
+									<i class="icon-double-angle-right"></i>
+									Vendas com COO
+								</a>
+							</li>
+							<li>
+								<a  th:href="@{/listarVendasComTroca}">
+									<i class="icon-double-angle-right"></i>
+									Vendas com Troca
+								</a>
+							</li>
+							<li>
+								<a  th:href="@{/listarVendasPorCPF}">
+									<i class="icon-double-angle-right"></i>
+									Vendas por CPF
+								</a>
+							</li>
+							<li>
+								<a  th:href="@{/listarTrocasDeCartaoPresente}">
+									<i class="icon-double-angle-right"></i>
+									Trocas de Cart&atilde;o Presente
+								</a>
+							</li>
+							<li>
+								<a  th:href="@{/graficoDeVendasMensal}">
+									<i class="icon-double-angle-right"></i>
+									Gr&aacute;fico de Vendas Mensal
+								</a>
+							</li>
 						</ul>
 					</li>
 					<li>
@@ -263,66 +485,110 @@
 
 						<ul class="submenu">
 							<li>
-								<a  th:href="@{/decredTotalEncargosAtrasoSintetico}">
-									<i class="icon-double-angle-right"></i>
-									Encargos de refinanciamento por Atraso Sintetico
+								<a href="#" class="dropdown-toggle">
+									<i class="icon-desktop"></i>
+									<span class="menu-text"> Taxa de Administra&ccedil;&atilde;o </span>
+									<b class="arrow icon-angle-down"></b>
 								</a>
+								<ul class="submenu">
+									<li>
+										<a  th:href="@{/decredTaxaDeAdministracaoSintetico}">
+											<i class="icon-double-angle-right"></i>
+											 Sintetico
+										</a>
+									</li>
+									<li>
+										<a  th:href="@{/decredTaxaDeAdministracaoAnalitico}">
+											<i class="icon-double-angle-right"></i>
+											 Analitico
+										</a>
+									</li>
+								</ul>
 							</li>
 							<li>
-								<a  th:href="@{/decredTotalEncargosAtrasoAnalitico}">
-									<i class="icon-double-angle-right"></i>
-									Encargos de refinanciamento por Atraso Analitico
+								<a href="#" class="dropdown-toggle">
+									<i class="icon-desktop"></i>
+									<span class="menu-text"> Multa Sobre Atraso </span>
+									<b class="arrow icon-angle-down"></b>
 								</a>
+								<ul class="submenu">
+									<li>
+										<a  th:href="@{/decredMultaSobreAtrasoSintetico}">
+											<i class="icon-double-angle-right"></i>
+											 Sintetico
+										</a>
+									</li>
+									<li>
+										<a  th:href="@{/decredMultaSobreAtrasoAnalitico}">
+											<i class="icon-double-angle-right"></i>
+											 Analitico
+										</a>
+									</li>
+								</ul>
 							</li>
 							<li>
-								<a  th:href="@{/decredMultaSobreAtrasoSintetico}">
-									<i class="icon-double-angle-right"></i>
-									Multa Sobre Atraso Sintetico
+								<a href="#" class="dropdown-toggle">
+									<i class="icon-desktop"></i>
+									<span class="menu-text"> Parcela de anuidade </span>
+									<b class="arrow icon-angle-down"></b>
 								</a>
+								<ul class="submenu">
+									<li>
+										<a  th:href="@{/decredParcelaDeAnuidadeSintetico}">
+											<i class="icon-double-angle-right"></i>
+											 Sintetico
+										</a>
+									</li>
+									<li>
+										<a  th:href="@{/decredParcelaDeAnuidadeAnalitico}">
+											<i class="icon-double-angle-right"></i>
+											 Analitico
+										</a>
+									</li>
+								</ul>
 							</li>
 							<li>
-								<a  th:href="@{/decredMultaSobreAtrasoAnalitico}">
-									<i class="icon-double-angle-right"></i>
-									Multa Sobre Atraso Analitico
+								<a href="#" class="dropdown-toggle">
+									<i class="icon-desktop"></i>
+									<span class="menu-text"> Encargos de refinanciamento por Atraso </span>
+									<b class="arrow icon-angle-down"></b>
 								</a>
+								<ul class="submenu">
+									<li>
+										<a  th:href="@{/decredTotalEncargosAtrasoSintetico}">
+											<i class="icon-double-angle-right"></i>
+											 Sintetico
+										</a>
+									</li>
+									<li>
+										<a  th:href="@{/decredTotalEncargosAtrasoAnalitico}">
+											<i class="icon-double-angle-right"></i>
+											 Analitico
+										</a>
+									</li>
+								</ul>
 							</li>
 							<li>
-								<a  th:href="@{/decredTaxaDeAdministracaoSintetico}">
-									<i class="icon-double-angle-right"></i>
-									Taxa de Administracao Sintetico
+								<a href="#" class="dropdown-toggle">
+									<i class="icon-desktop"></i>
+									<span class="menu-text"> Encargos de Cobran&ccedil;a por Desconto </span>
+									<b class="arrow icon-angle-down"></b>
 								</a>
+								<ul class="submenu">
+									<li>
+										<a  th:href="@{/decredEncargosDeCobrancaPorDescontoSintetico}">
+											<i class="icon-double-angle-right"></i>
+											 Sintetico
+										</a>
+									</li>
+									<li>
+										<a  th:href="@{/decredEncargosDeCobrancaPorDescontoAnalitico}">
+											<i class="icon-double-angle-right"></i>
+											 Analitico
+										</a>
+									</li>
+								</ul>
 							</li>
-							<li>
-								<a  th:href="@{/decredTaxaDeAdministracaoAnalitico}">
-									<i class="icon-double-angle-right"></i>
-									Taxa de Administracao Analitico
-								</a>
-							</li>
-							<li>
-								<a  th:href="@{/decredParcelaDeAnuidadeSintetico}">
-									<i class="icon-double-angle-right"></i>
-									Parcela de Anuidade Sintetico
-								</a>
-							</li>
-							<li>
-								<a  th:href="@{/decredParcelaDeAnuidadeAnalitico}">
-									<i class="icon-double-angle-right"></i>
-									Parcela de Anuidade Analitico
-								</a>
-							</li>
-							<li>
-								<a  th:href="@{/decredEncargosDeCobrancaPorDescontoSintetico}">
-									<i class="icon-double-angle-right"></i>
-									Encargos de Cobrança por Desconto Sintetico
-								</a>
-							</li>
-							<li>
-								<a  th:href="@{/decredEncargosDeCobrancaPorDescontoAnalitico}">
-									<i class="icon-double-angle-right"></i>
-									Encargos de Cobrança por Desconto Analitico
-								</a>
-							</li>
-
 							
 						</ul>
 					</li>
@@ -356,7 +622,8 @@
 		
 	<script src="../assets/js/jquery-2.0.3.min.js" th:src="@{/assets/js/jquery-2.0.3.min.js}"></script>
 		
-	<!-- 		<script src="../assets/js/jquery-2.0.3.min.js" th:src="@{/assets/js/jquery-ui-1.10.3.custom.min.js}"></script>
+
+		<script src="../assets/js/jquery-2.0.3.min.js" th:src="@{/assets/js/jquery-ui-1.10.4.custom.min.js}"></script>
 		
 		<script src="../assets/js/jquery-2.0.3.min.js" th:src="@{/assets/js/jquery.ui.datepicker-pt-BR.js}"></script>
 		
@@ -367,7 +634,6 @@
 	        });
 			
 		</script>
-		-->
 
 		<!--<![endif]-->
 
@@ -377,10 +643,10 @@
 			</script>
 		<![endif]-->
 
-		<script type="text/javascript">
-		<!--if("ontouchend" in document) document.write("<script src='../assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");-->
- 		</script>
 		<script src="assets/js/bootstrap.min.js" th:src="@{/assets/js/bootstrap.min.js}"></script>
+		<script src="assets/js/script.js" th:src="@{/assets/js/script.js}"></script>
+		<script src="highcharts/highcharts.js" th:src="@{/highcharts/highcharts.js}"></script>
+		<script src="highcharts/modules/exporting.js" th:src="@{/highcharts/modules/exporting.js}"></script>
 
 		<!--page specific plugin scripts-->
 

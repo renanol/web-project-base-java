@@ -49,7 +49,7 @@ public class DecredTaxaDeAdministracaoAnaliticoController {
 		String url = arquivo.getAbsolutePath(); 
 		List<Object[]> lista = service.decredTaxaDeAdministracaoAnalitico(dataInicial, dataFinal); 
 		
-		String[] colunas = new String[]{"Nome", "Login", "Senha"};
+		String[] colunas = new String[]{"Data", "Valor", "Loja", "Codigo Cliente"};
 		
 	    HSSFWorkbook wb = new HSSFWorkbook();
 	    HSSFSheet plan1 = null;
@@ -74,8 +74,9 @@ public class DecredTaxaDeAdministracaoAnaliticoController {
 	        }
 	        linha++;
 	        row.createCell(0).setCellValue(coluna[0]+"");
-	        row.createCell(1).setCellValue(coluna[1]+"");
-	        row.createCell(2).setCellValue(coluna[2]+"");
+	        row.createCell(1).setCellValue(coluna[2]+"");
+	        row.createCell(2).setCellValue(coluna[3]+"");
+	        row.createCell(3).setCellValue(coluna[4]+"");
 	      }
 	      wb.write(file);
 
@@ -88,5 +89,4 @@ public class DecredTaxaDeAdministracaoAnaliticoController {
 
 	    return "/adm-oscar/xls/"+nomeArquivo;
 	  }
-	
 }

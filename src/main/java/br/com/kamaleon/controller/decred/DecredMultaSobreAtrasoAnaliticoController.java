@@ -49,7 +49,7 @@ public class DecredMultaSobreAtrasoAnaliticoController {
 		String url = arquivo.getAbsolutePath(); 
 		List<Object[]> lista = service.decredMultaSobreAtrasoAnalitico(dataInicial, dataFinal); 
 		
-		String[] colunas = new String[]{"Nome", "Login", "Senha"};
+		String[] colunas = new String[]{"Data", "Valor", "Codigo Cliente"};
 		
 	    HSSFWorkbook wb = new HSSFWorkbook();
 	    HSSFSheet plan1 = null;
@@ -74,8 +74,8 @@ public class DecredMultaSobreAtrasoAnaliticoController {
 	        }
 	        linha++;
 	        row.createCell(0).setCellValue(coluna[0]+"");
-	        row.createCell(1).setCellValue(coluna[1]+"");
-	        row.createCell(2).setCellValue(coluna[2]+"");
+	        row.createCell(1).setCellValue(coluna[2]+"");
+	        row.createCell(2).setCellValue(coluna[3]+"");
 	      }
 	      wb.write(file);
 

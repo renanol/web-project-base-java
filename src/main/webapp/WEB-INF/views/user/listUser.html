@@ -43,7 +43,7 @@
 		{
 			
 			$.ajax({		
-		    	url: "http://localhost:8080/adm-oscar/user/json",				
+		    	url: "/adm-oscar/user/json",				
 		    	data: {name : $('#name').val(), username : $('#username').val()},				
 		    	type: 'GET'		    	
 			}).success(function(data){
@@ -69,12 +69,11 @@
 		{
 			
 			$.ajax({		
-		    	url: "http://localhost:8080/adm-oscar/user/xls",				
+		    	url: "/adm-oscar/user/xls",				
 		    	data: {name : $('#name').val(), username : $('#username').val()},				
 		    	type: 'GET'		    	
 			}).success(function(data){
 				
-				alert(data);
 				window.open(data,"XLS","width=800, height=600, directories=no, location=no, menubar=no, scrollbars=no,status=no,toolbar=no, resizable=no");
 			})	
 			

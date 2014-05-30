@@ -13,6 +13,9 @@
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Vinicius/.gradle/caches/modules-2/files-2.1/org.apache.poi/poi/3.6/3f9d1a3dd2561f6ef09e268aa284e9f0807bcc68/poi-3.6.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Vinicius/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.4/1aa1579ae5ecd41920c4f355b0a9ef40b68315dd/mail-1.4.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Vinicius/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/3.2.1.RELEASE/9afdb697e1f11c6e75436938e95f1fad26791cc7/spring-security-web-3.2.1.RELEASE.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
@@ -52,6 +55,9 @@
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Vinicius/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.6/562424e36df3d2327e8e9301a76027fca17d54ea/slf4j-api-1.7.6.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Vinicius/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Vinicius/.gradle/caches/modules-2/files-2.1/antlr/antlr/2.7.7/83cd2cd674a217ade95a4bb83a8a14f351f48bd0/antlr-2.7.7.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
@@ -88,6 +94,9 @@
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Vinicius/.gradle/caches/modules-2/files-2.1/org.codehaus.jackson/jackson-core-asl/1.9.4/8d8b2a3e5bc77ee1be67d060b44ac77d48a27d6e/jackson-core-asl-1.9.4.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Vinicius/.m2/repository/com/oracle/oracle/10/oracle-10.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Vinicius/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-core/4.3.1.Final/73618cbf2dd1fa989a13d9444d4f025cfc51ec10/hibernate-core-4.3.1.Final.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
@@ -95,9 +104,6 @@
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Vinicius/.gradle/caches/modules-2/files-2.1/org.logback-extensions/logback-ext-spring/0.1.1/5a224e3806f8f7c0e4af0dbbcc1e5bd05ac244b7/logback-ext-spring-0.1.1.jar">
-			<dependency-type>uses</dependency-type>
-		</dependent-module>
-		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Vinicius/.gradle/caches/modules-2/files-2.1/org.postgresql/postgresql/9.3-1100-jdbc4/7a09dd2b8c01babc07617973fd6f99c007e2b786/postgresql-9.3-1100-jdbc4.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Vinicius/.gradle/caches/modules-2/files-2.1/org.jboss/jandex/1.1.0.Final/e84a2122e76f0b6503be78094ddf2108057ac15f/jandex-1.1.0.Final.jar">

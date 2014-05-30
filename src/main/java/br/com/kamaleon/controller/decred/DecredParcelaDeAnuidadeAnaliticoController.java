@@ -49,7 +49,7 @@ public class DecredParcelaDeAnuidadeAnaliticoController {
 		String url = arquivo.getAbsolutePath(); 
 		List<Object[]> lista = service.decredParcelaDeAnuidadeAnalitico(dataInicial, dataFinal); 
 		
-		String[] colunas = new String[]{"Nome", "Login", "Senha"};
+		String[] colunas = new String[]{"Data", "Valor", "Codigo Cliente"};
 		
 	    HSSFWorkbook wb = new HSSFWorkbook();
 	    HSSFSheet plan1 = null;
@@ -74,8 +74,8 @@ public class DecredParcelaDeAnuidadeAnaliticoController {
 	        }
 	        linha++;
 	        row.createCell(0).setCellValue(coluna[0]+"");
-	        row.createCell(1).setCellValue(coluna[1]+"");
-	        row.createCell(2).setCellValue(coluna[2]+"");
+	        row.createCell(1).setCellValue(coluna[2]+"");
+	        row.createCell(2).setCellValue(coluna[3]+"");
 	      }
 	      wb.write(file);
 
@@ -88,6 +88,4 @@ public class DecredParcelaDeAnuidadeAnaliticoController {
 
 	    return "/adm-oscar/xls/"+nomeArquivo;
 	  }
-
-	
 }

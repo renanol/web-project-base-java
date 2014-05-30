@@ -1,5 +1,6 @@
 package br.com.kamaleon.service;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -36,5 +37,31 @@ public class UserService {
     public User getUser(User user){
     	return userRepository.getUser(user);
     }
+    
+    public List<Object[]> listarFuncionariosSemUsuarios(String nome, String cpf){
+    	return userRepository.listarFuncionariosSemUsuarios(nome, cpf);
+    }
+    
+    public String cadastrarUsuario(String cpf) throws SQLException{
+    	return userRepository.cadastrarUsuario( cpf);
+    }
+
+	public List<Object[]> listarUsuarioFuncionario(String nome, String login,
+			String atividade) {
+		// TODO Auto-generated method stub
+		return userRepository.listarUsuarioFuncionario(nome, login, atividade);
+	}
+
+	public List<Object[]> listarUsuarioGrupo(String nome, String login,
+			String grupo) {
+		// TODO Auto-generated method stub
+		return userRepository.listarUsuarioGrupo(nome, login, grupo);
+	}
+	
+	public List<Object[]> listarUsuarioGrupoCards(String nome, String login,
+			String grupo) {
+		// TODO Auto-generated method stub
+		return userRepository.listarUsuarioGrupoCards(nome, login, grupo);
+	}
 	
 }

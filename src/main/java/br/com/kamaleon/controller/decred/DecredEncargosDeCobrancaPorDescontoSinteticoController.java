@@ -73,9 +73,9 @@ public class DecredEncargosDeCobrancaPorDescontoSinteticoController {
 	          row = plan1.createRow(linha);
 	        }
 	        linha++;
-	        row.createCell(0).setCellValue(coluna[0]+"");
-	        row.createCell(1).setCellValue(coluna[1]+"");
-	        row.createCell(2).setCellValue(coluna[2]+"");
+	        row.createCell(0).setCellValue(coluna[1]+"");
+	        row.createCell(1).setCellValue(coluna[2]+"");
+	        row.createCell(2).setCellValue(coluna[3]+"");
 	      }
 	      wb.write(file);
 

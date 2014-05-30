@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt" 
+		xmlns:th="http://www.thymeleaf.org"  
+		xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout/layout">
+<head>
+        <title>ADM-OSCAR-KAMALEON</title>
+</head>
+<body>
+	<!-- Any content you put in the div fragment below will appear on the page-->
+	<div class="container" layout:fragment="content">
+	
+			<h3>
+				Listar Despesas com Rateios Divergentes
+			</h3>            
+			
+            <fieldset>
+                <div class="form-actions">
+                <label for="codigoTipoDespesa">Tipo Despesa:</label>
+                <select id="codigoTipoDespesa" name="codigoTipoDespesa" onchange="javascript:preencherComboGrupoDespesa()">
+				  <option value="0">-</option> 
+				  <option th:each="type : ${listaTipoDespesa}" 
+				          th:value="${type[0]}" 
+				          th:text="${type[1]}"></option>
+				</select>
+                <label for="codigoGrupoDespesa">Grupo Despesa:</label>
+                <select id="codigoGrupoDespesa" name="codigoGrupoDespesa" onchange="javascript:preencherComboSubGrupoDespesa()">
+				  <option value="0">-</option> 
+				</select>
+                <label for="codigoSubGrupoDespesa">Grupo Despesa:</label>
+                <select id="codigoSubGrupoDespesa" name="codigoSubGrupoDespesa">
+				  <option value="0">-</option> 
+				</select>
+               <label for="dataInicial">Data Inicial:</label>
+                <input type="text" class="dataFormatada" id="dataInicial" name="dataInicial"/>        
+                <label for="dataFinal">Data Final:</label>
+                <input type="text" class="dataFormatada" id="dataFinal" name="dataFinal"/> 
+                    <button onClick="javascript:consulta()" class="btn">Filtrar</button>
+                    <button onClick="javascript:xls()" class="btn">XLS</button>
+                </div>
+            </fieldset>	
+			<table id="tabela" class="table table-striped table-bordered table-hover">
+			  <thead>
+			    <tr>
+				 <th>ID_DESPESA</th>
+				   <th>DS_DESPESA</th>
+				   <th>ID_TIPO_DESPESA</th>
+				   <th>DS_TIPO_DESPESA</th>
+				   <th>ID_GRUPO_DESPESA</th>
+				   <th>DS_GRUPO_DESPESA</th>
+				   <th>ID_SUB_GRUPO_DESPESA</th>
+				   <th>DS_SUB_GRUPO_DESPESA</th>
+				   <th>DT_VENCIMENTO</th>
+				   <th>VL_DESPESA</th>
+				   <th>VL_RATEIO</th>
+				   <th>VL_DIFERENCA</th>
+				   <th>VL_PERCENTUAL_RATEIO</th>    	      
+			    </tr>
+			  </thead>
+			  <tbody>
+			  </tbody>
+			</table>
+				            
+	
+	<script src="assets/js/script.js" th:src="@{/assets/js/script.js}"></script>
+	<script type="text/javascript">
+	
+		function consulta()
+		{
+			
+			$.ajax({		     
+		    	url: "/adm-oscar/listarRateiosDespesaDivergentes/json",			
+		    	data: {codigoTipoDespesa: $('#codigoTipoDespesa').val(), codigoGrupoDespesa: $('#codigoGrupoDespesa').val(), codigoSubGrupoDespesa: $('#codigoSubGrupoDespesa').val(), dataInicial: $('#dataInicial').val(), dataFinal: $('#dataFinal').val()},				
+		    	type: 'GET'		    	
+			}).success(function(data){
+				
+				$("#tabela > tbody").empty();
+				
+				$.each( data, function( key, value ) {
+
+					var conteudo = "<tr>";
+					conteudo += "<td>"+value[0]+"</td>";
+					conteudo += "<td>"+value[1]+"</td>";
+					conteudo += "<td>"+value[2]+"</td>";
+					conteudo += "<td>"+value[3]+"</td>";
+					conteudo += "<td>"+value[4]+"</td>";
+					conteudo += "<td>"+value[5]+"</td>";
+					conteudo += "<td>"+value[6]+"</td>";
+					conteudo += "<td>"+value[7]+"</td>";
+					conteudo += "<td>"+formatarDataDDMMYYYY(value[8])+"</td>";
+					conteudo += "<td>"+moeda(value[9],  2,',','.')+"</td>";
+					conteudo += "<td>"+moeda(value[10], 2,',','.')+"</td>";
+					conteudo += "<td>"+moeda(value[11], 2,',','.')+"</td>";
+					conteudo += "<td>"+moeda(value[12], 2, ',', '.')+"</td>";
+					conteudo += "</tr>";
+					$("#tabela > tbody").append(conteudo);
+					});
+			})	
+		}
+		function preencherComboGrupoDespesa()
+		{
+			
+			$.ajax({		     
+		    	url: "/adm-oscar/listarRateiosDespesaDivergentes/jsonComboGrupoDespesa",			
+		    	data: {codigoTipoDespesa: $('#codigoTipoDespesa').val()},				
+		    	type: 'GET'		    	
+			}).success(function(data){
+				
+				$('#codigoGrupoDespesa').find('option').remove();
+				
+				var option = new Option("-", "0");
+				$('#codigoGrupoDespesa').append($(option));
+				
+				
+				$.each( data, function( key, value ) {
+
+					var option2 = new Option(value[1], value[0]);
+						$('#codigoGrupoDespesa').append($(option2));
+					});
+			})	
+		}
+		function preencherComboSubGrupoDespesa()
+		{
+			
+			$.ajax({		     
+		    	url: "/adm-oscar/listarRateiosDespesaDivergentes/jsonComboSubGrupoDespesa",			
+		    	data: {codigoGrupoDespesa: $('#codigoGrupoDespesa').val()},				
+		    	type: 'GET'		    	
+			}).success(function(data){
+				
+				$('#codigoSubGrupoDespesa').find('option').remove();
+				
+				var option = new Option("-", "0");
+				$('#codigoSubGrupoDespesa').append($(option));
+				
+				
+				$.each( data, function( key, value ) {
+
+					var option2 = new Option(value[1], value[0]);
+						$('#codigoSubGrupoDespesa').append($(option2));
+					});
+			})	
+		}
+		function xls()
+		{
+			$.ajax({		
+				url: "/adm-oscar/listarRateiosDespesaDivergentes/xls",				
+				data: {codigoTipoDespesa: $('#codigoTipoDespesa').val(), codigoGrupoDespesa: $('#codigoGrupoDespesa').val(), codigoSubGrupoDespesa: $('#codigoSubGrupoDespesa').val(), dataInicial: $('#dataInicial').val(), dataFinal: $('#dataFinal').val()},				
+		    	type: 'GET'		    	
+			}).success(function(data){
+				
+				window.open(data,"XLS","width=800, height=600, directories=no, location=no, menubar=no, scrollbars=no,status=no,toolbar=no, resizable=no");
+			})	
+		}
+		</script>
+	
+	</div>
+
+</body>
+</html>

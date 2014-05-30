@@ -17,10 +17,10 @@
             <fieldset>
                 <div class="form-actions">
                 <label for="dataInicial">Data Inicial:</label>
-                <input type="text" id="dataInicial" name="dataFinal"/>        
+                <input type="text" id="dataInicial" class="dataFormatada" name="dataFinal"/>        
                 <br/>
                 <label for="dataFinal">Data Final:</label>
-                <input type="text" id="dataFinal" name="dataFinal"/>        
+                <input type="text" id="dataFinal" class="dataFormatada" name="dataFinal"/>        
                     <button onClick="javascript:consulta()" class="btn">Filtrar</button>
                     <button onClick="javascript:xls()" class="btn">XLS</button>
                 </div>
@@ -44,7 +44,7 @@
 		{
 			
 			$.ajax({		
-		    	url: "http://localhost:8080/adm-oscar/decredTaxaDeAdministracaoSintetico/json",				
+		    	url: "/adm-oscar/decredTaxaDeAdministracaoSintetico/json",				
 		    	data: {dataInicial : $('#dataInicial').val(), dataFinal: $('#dataFinal').val()},				
 		    	type: 'GET'		    	
 			}).success(function(data){
@@ -55,7 +55,7 @@
 
 					var conteudo = "<tr>";
 					conteudo += "<td>"+value[1]+"</td>"
-					conteudo += "<td>"+value[2]+"</td>"
+					conteudo += "<td>"+USAToBrazil(value[2])+"</td>"
 					conteudo += "<td>"+value[3]+"</td>"
 					conteudo += "</tr>"
 					$("#tabela > tbody").append(conteudo);
@@ -66,12 +66,11 @@
 		function xls()
 		{
 			$.ajax({		
-				url: "http://localhost:8080/adm-oscar/decredTaxaDeAdministracaoSintetico/xls",				
+				url: "/adm-oscar/decredTaxaDeAdministracaoSintetico/xls",				
 		    	data: {dataInicial : $('#dataInicial').val(), dataFinal: $('#dataFinal').val()},					
 		    	type: 'GET'		    	
 			}).success(function(data){
 				
-				alert(data);
 				window.open(data,"XLS","width=800, height=600, directories=no, location=no, menubar=no, scrollbars=no,status=no,toolbar=no, resizable=no");
 			})	
 		}

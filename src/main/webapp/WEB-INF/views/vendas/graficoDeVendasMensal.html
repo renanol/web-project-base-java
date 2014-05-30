@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt" 
+		xmlns:th="http://www.thymeleaf.org"  
+		xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout/layout">
+<head>
+        <title>ADM-OSCAR-KAMALEON</title>
+</head>
+<body>
+	<!-- Any content you put in the div fragment below will appear on the page-->
+	<div class="container" layout:fragment="content">
+	
+			<h3>
+				Gr&aacute;fico de Vendas Mensal
+			</h3>            
+			
+            <fieldset>
+                <div class="form-actions">
+                <label for="loja">Loja (Sigla):</label>
+                <select id="loja" name="loja" th:field="*{listaEstabelecimento}">
+				  <option value="0">-</option> 
+				  <option th:each="type : ${listaEstabelecimento}" 
+				          th:value="${type[0]}" 
+				          th:text="${type[1]}"></option>
+				</select>
+               <label for="dataInicial">Data Inicial:</label>
+                <input type="text" class="dataFormatada" id="dataInicial" name="dataInicial"/>        
+                <label for="dataFinal">Data Final:</label>
+                <input type="text" class="dataFormatada" id="dataFinal" name="dataFinal"/> 
+                    <button onClick="javascript:consulta()" class="btn">Gerar</button>
+                </div>
+            </fieldset>
+
+		<div class="row-fluid">
+
+			<div class="span6">
+				<div class="widget-box transparent">
+					<div class="widget-header widget-header-flat">
+						<h4 class="lighter">
+							<i class="icon-signal"></i> Vendas Mensal
+						</h4>
+						<div class="widget-toolbar">
+							<a href="#" data-action="collapse"> <i
+								class="icon-chevron-up"></i>
+							</a>
+						</div>
+					</div>
+					<div class="widget-body">
+						<div class="widget-main padding-4">
+							<div class="demo-container">
+								<div id="grafico"></div>
+							</div>
+						</div>
+						<!--/widget-main-->
+					</div>
+					<!--/widget-body-->
+				</div>
+				<!--/widget-box-->
+			</div>
+
+
+		</div>
+		<!--/row-->
+
+	<script type="text/javascript">
+	
+		$(function () {
+			
+			Highcharts.setOptions({
+			    lang: {
+			        decimalPoint: ',',
+			        thousandsSep: '.'
+			    }
+			});
+			
+	    });	
+		
+		function preencherGrafico(dados, eixoX) 
+		{
+		        $('#grafico').highcharts({
+		            title: {
+		                text: '',
+		                x: -10 //center
+		            },
+		            subtitle: {
+		                text: ''
+		            },
+		            xAxis: {
+		                categories: dados
+		            },
+		            yAxis: {
+		                title: {
+		                    text: 'Valor(R$)'
+		                },
+		                plotLines: [{
+		                    value: 0,
+		                    width: 1,
+		                    color: '#808080'
+		                }],
+		                labels: {
+			                formatter: function() {
+			                    return "R$ "+ USAToBrazil(this.value) ;
+			                }
+		            	}
+		            },
+		            tooltip: {
+		                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+		                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+		                    '<td style="padding:0"><b>R$ {point.y}</b></td></tr>',
+		                footerFormat: '</table>',
+		                shared: true,
+		                useHTML: true,
+					  	valueDecimals: 2
+		            },
+		            legend: {
+		                layout: 'vertical',
+		                align: 'right',
+		                verticalAlign: 'middle',
+		                borderWidth: 0
+		            },
+		            series: eixoX
+		        });
+		    
+		  }
+	
+		function consulta()
+		{
+			
+			$.ajax({		     
+		    	url: "/adm-oscar/graficoDeVendasMensal/json",			
+		    	data: {loja: $('#loja').val(), dataInicial: $('#dataInicial').val(), dataFinal: $('#dataFinal').val()},				
+		    	type: 'GET'		    	
+			}).success(function(data){
+				
+				preencherGrafico(data.datas, data.dados);
+			})	
+		}
+		</script>
+	
+	</div>
+
+</body>
+</html>

@@ -39,7 +39,7 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/Vinicius/.gradle/caches/modules-2/files-2.1/org.postgresql/postgresql/9.3-1100-jdbc4/3c9f656d44900aa9ff06e6843ecf04c8dd3faebe/postgresql-9.3-1100-jdbc4-sources.jar" kind="lib" path="C:/Users/Vinicius/.gradle/caches/modules-2/files-2.1/org.postgresql/postgresql/9.3-1100-jdbc4/7a09dd2b8c01babc07617973fd6f99c007e2b786/postgresql-9.3-1100-jdbc4.jar" exported="true">
+	<classpathentry kind="lib" path="C:/Users/Vinicius/.m2/repository/com/oracle/oracle/10/oracle-10.jar" exported="true">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
@@ -90,6 +90,11 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry sourcepath="C:/Users/Vinicius/.gradle/caches/modules-2/files-2.1/org.apache.poi/poi/3.6/c98721273319cf0cc7eee3a63e92ad41090ad046/poi-3.6-sources.jar" kind="lib" path="C:/Users/Vinicius/.gradle/caches/modules-2/files-2.1/org.apache.poi/poi/3.6/3f9d1a3dd2561f6ef09e268aa284e9f0807bcc68/poi-3.6.jar" exported="true">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Vinicius/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.4/fdd508f19a5075196138c94b341120e917c10e8a/mail-1.4-sources.jar" kind="lib" path="C:/Users/Vinicius/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.4/1aa1579ae5ecd41920c4f355b0a9ef40b68315dd/mail-1.4.jar" exported="true">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
@@ -260,6 +265,11 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry sourcepath="C:/Users/Vinicius/.gradle/caches/modules-2/files-2.1/log4j/log4j/1.2.13/d77ba5661ca05a5eabdaa38c71d3da595318ee7/log4j-1.2.13-sources.jar" kind="lib" path="C:/Users/Vinicius/.gradle/caches/modules-2/files-2.1/log4j/log4j/1.2.13/8b1b85d04eea979c33109ea42808b7d3f6d355ab/log4j-1.2.13.jar" exported="true">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/Vinicius/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/3697e9f67a2ed7ac5f589cff30f21173299440/activation-1.1-sources.jar" kind="lib" path="C:/Users/Vinicius/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar" exported="true">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>

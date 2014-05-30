@@ -50,7 +50,7 @@ public class DecredEncargosDeCobrancaPorDescontoAnaliticoController {
 		String url = arquivo.getAbsolutePath(); 
 		List<Object[]> lista = service.decredEncargosDeCobrancaPorDescontoAnalitico(dataInicial, dataFinal); 
 		
-		String[] colunas = new String[]{"Nome", "Login", "Senha"};
+		String[] colunas = new String[]{"Data", "Valor", "Quantidade"};
 		
 	    HSSFWorkbook wb = new HSSFWorkbook();
 	    HSSFSheet plan1 = null;
@@ -74,9 +74,9 @@ public class DecredEncargosDeCobrancaPorDescontoAnaliticoController {
 	          row = plan1.createRow(linha);
 	        }
 	        linha++;
-	        row.createCell(0).setCellValue(coluna[0]+"");
-	        row.createCell(1).setCellValue(coluna[1]+"");
-	        row.createCell(2).setCellValue(coluna[2]+"");
+	        row.createCell(0).setCellValue(coluna[1]+"");
+	        row.createCell(1).setCellValue(coluna[2]+"");
+	        row.createCell(2).setCellValue(coluna[3]+"");
 	      }
 	      wb.write(file);
 
