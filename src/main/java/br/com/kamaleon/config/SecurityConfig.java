@@ -60,7 +60,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/", "/login", "logout", "/assets/js/**", "/assets/css/**", "/assets/avatars/**", "/assets/font/**", "/assets/img/**", "/assets/images/**")
+                .antMatchers("/", "/ws/**",  "/login", "logout", "/assets/js/**", "/assets/css/**", "/assets/avatars/**", "/assets/font/**", "/assets/img/**", "/assets/images/**")
                     .permitAll()
             .anyRequest()
                 .authenticated();

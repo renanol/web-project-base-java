@@ -40,7 +40,7 @@ public class WebAppConfig implements WebApplicationInitializer {
         //security
         FilterRegistration.Dynamic securityFilterChain = servletContext.addFilter("springSecurityFilterChain", new DelegatingFilterProxy());
         securityFilterChain.addMappingForUrlPatterns(dispatcherTypes, true, "/*");
-
+        
         //Spring
         CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
         characterEncodingFilter.setEncoding("UTF-8");

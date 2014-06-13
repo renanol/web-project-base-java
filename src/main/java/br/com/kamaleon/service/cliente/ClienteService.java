@@ -34,4 +34,10 @@ public class ClienteService {
 				numeroCartaoDependente, statusCartaoDependente, statusCartaoTitular);
 	}
 	
+	public List<Object[]> listarCliente(String nome,
+			String cpfCnpj, String status, int tipo) {
+		// TODO Auto-generated method stub
+		return dao.listarCliente(nome, cpfCnpj, status, tipo);
+	}
+	
 }

@@ -64,6 +64,37 @@ public class ClienteRepository {
 		return lista;
 	}
 	
+	public List<Object[]> listarCliente(String nome,
+			String cpfCnpj, String status, int tipo) {
+		
+		String sql = "select idcliente, nome, cpfcnpj, status from t_cliente where 1=1 ";
+				
+		if(ValidadorUniversal.check(nome))
+		{
+			sql += " and upper(nome) like upper('" + nome.toUpperCase() + "%') ";
+		}
+		if(ValidadorUniversal.check(cpfCnpj))
+		{
+			sql += " and cpfcnpj = '" + cpfCnpj + "'";
+		}
+		if(ValidadorUniversal.check(status))
+		{
+			sql += " and status = '" + status + "'";
+		}
+		if(tipo > 0)
+		{
+			sql += " and idtipopessoa = " + tipo ;
+		}
+		
+		sql += " order by nome";
+		
+		
+		List<Object[]> lista = entityManager.createNativeQuery(sql).getResultList();
+		
+		return lista;
+		
+	}
+	
 	public List<Object[]> listarClientesComMaisDeUmCartaoNoCards(String nome,
 			String cpfcnpj, String numeroCartao, String statusCliente,
 			String statusCartao, String nomeDependente,

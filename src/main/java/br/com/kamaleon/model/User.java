@@ -6,15 +6,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table( name = "t_user" )
 @SequenceGenerator(name="gerador", sequenceName="s_user", allocationSize=1)
+@XmlRootElement
 public class User {
 	
 	@Id
 	@GeneratedValue(generator = "gerador", strategy = GenerationType.SEQUENCE )
-	private Long id;
+	private Integer id;
 	
 	private String username;
 	
@@ -30,7 +32,7 @@ public class User {
 		this.name = name;
 	}
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 	
@@ -50,7 +52,7 @@ public class User {
 		this.password = password;
 	}
 	
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
@@ -58,6 +60,13 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password="
 				+ password + "]";
+	}
+	
+	public void convertUser(Object[] objeto)
+	{
+		setId(((Integer) objeto[0]));
+		setName((String) objeto[1]);
+		setUsername((String) objeto[2]);
 	}
 	
 }

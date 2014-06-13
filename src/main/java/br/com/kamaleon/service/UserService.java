@@ -64,4 +64,9 @@ public class UserService {
 		return userRepository.listarUsuarioGrupoCards(nome, login, grupo);
 	}
 	
+	public Object[] getUser(String login, String senha)
+	{
+		return userRepository.getUser(login, senha);
+	}
+	
 }

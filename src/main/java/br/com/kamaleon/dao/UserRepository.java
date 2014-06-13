@@ -1,7 +1,6 @@
 package br.com.kamaleon.dao;
 
 import java.math.BigDecimal;
-import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -58,7 +57,7 @@ public class UserRepository {
 		for (Object[] objeto : lista)
 		{
 			User user = new User();
-			user.setId(((BigDecimal)objeto[0]).longValue());
+			user.setId(((BigDecimal)objeto[0]).intValue());
 			user.setName((String) objeto[1]);
 			user.setUsername((String) objeto[2]);
 			user.setPassword((String) objeto[3]);
@@ -104,8 +103,31 @@ public class UserRepository {
 		for (Object[] objeto : lista)
 		{
 			System.out.println(objeto[0] + "\t" + objeto[1] + "\t" + objeto[2] + "\t" + objeto[3]);
-			user.setId(((BigDecimal)objeto[0]).longValue());
+			user.setId(((BigDecimal)objeto[0]).intValue());
 			return user;
+		}
+		
+		return null;
+	}
+	
+	public Object[] getUser(String login, String senha){
+		
+		List<Object[]> lista = entityManager.createNativeQuery("SELECT U.IDUSUARIO AS ID_USUARIO, U.NOME AS NM_USUARIO, U.LOGIN AS NM_LOGIN, U.SENHA "
+				+ " FROM   T_METAIDENTIFICADORPORTAL M,"
+				+ " T_USUARIO U, T_GRUPOUSUARIO G"
+				+ " WHERE  "
+				+ " U.IDUSUARIO = M.IDUSUARIO AND"
+				+ " U.IDUSUARIO = G.IDUSUARIO AND"
+				+ " G.IDGRUPO IN (1,109) AND"
+				+ " U.STATUS = 'A' AND"
+				+ " U.LOGIN = '"+login+"' AND"
+				+ " m.CODIGO = '"+ senha +"' ").getResultList();
+		
+		for (Object[] objeto : lista)
+		{
+			System.out.println(objeto[0] + "\t" + objeto[1] + "\t" + objeto[2] + "\t" + objeto[3]);
+			
+			return objeto;
 		}
 		
 		return null;
