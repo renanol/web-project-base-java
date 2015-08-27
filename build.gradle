@@ -3,7 +3,7 @@ apply plugin: 'eclipse-wtp'
 
 repositories
 {
-    mavenLocal()
+    //mavenLocal()
     mavenCentral()
 }
 
@@ -42,7 +42,7 @@ dependencies
     //def mysqlDriverVersion = '5.1.29'
     //compile "mysql:mysql-connector-java:${mysqlDriverVersion}"
 	// compile 'org.postgresql:postgresql:9.3-1100-jdbc4'
-	compile 'com.oracle:oracle:10'
+	//compile 'com.oracle:oracle:10'
 	
     
 
@@ -83,7 +83,3 @@ dependencies
 
 }
 
-tasks.withType(JavaCompile)
-{
-    options.encoding = "UTF-8";
-}
