@@ -1,10 +1,5 @@
 package br.com.kamaleon.config;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import nz.net.ultraq.thymeleaf.LayoutDialect;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,11 +11,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.thymeleaf.dialect.IDialect;
-import org.thymeleaf.spring4.SpringTemplateEngine;
-import org.thymeleaf.spring4.dialect.SpringStandardDialect;
-import org.thymeleaf.spring4.view.ThymeleafViewResolver;
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
+import org.springframework.web.servlet.view.velocity.VelocityConfigurer;
+import org.springframework.web.servlet.view.velocity.VelocityViewResolver;
+
 
 /**
  * Created by @author Renan Oliveira on 08/05/14
@@ -49,40 +42,18 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	}
 	
 	@Bean
-	public Set<IDialect> thymeleafDialects() {
-		Set<IDialect> dialects = new HashSet<IDialect>();
-		dialects.add(new SpringStandardDialect());
-		dialects.add(new LayoutDialect());
-		return dialects;
-	}
-
-	@Bean
-	public ServletContextTemplateResolver templateResolver() {
-		ServletContextTemplateResolver resolver = new ServletContextTemplateResolver();
-		resolver.setPrefix("/WEB-INF/views/");
-		resolver.setSuffix(".html");
-		//NB, selecting HTML5 as the template mode.
-		resolver.setTemplateMode("HTML5");
-		resolver.setCacheable(false);
-		return resolver;
-
+	public VelocityConfigurer velocityConfig() {
+	    VelocityConfigurer velocityConfigurer = new VelocityConfigurer();
+	    
+	    return velocityConfigurer;
 	}
 	
-	public SpringTemplateEngine templateEngine() {
-		SpringTemplateEngine engine = new SpringTemplateEngine();
-		engine.setTemplateResolver(templateResolver());
-		engine.setDialects(thymeleafDialects());
-		return engine;
-	}
-
 	@Bean
 	public ViewResolver viewResolver() {
 
-		ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
-		viewResolver.setTemplateEngine(templateEngine());
-		viewResolver.setOrder(1);
-		viewResolver.setViewNames(new String[]{"*"});
-		viewResolver.setCache(false);
+		VelocityViewResolver viewResolver = new VelocityViewResolver();
+		viewResolver.setSuffix(".vm");		
+		viewResolver.setCache(true);
 		return viewResolver;
 	}
 	

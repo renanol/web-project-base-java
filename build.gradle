@@ -41,7 +41,7 @@ dependencies
     //mysqlDrive
     //def mysqlDriverVersion = '5.1.29'
     //compile "mysql:mysql-connector-java:${mysqlDriverVersion}"
-	// compile 'org.postgresql:postgresql:9.3-1100-jdbc4'
+    compile 'org.postgresql:postgresql:9.3-1100-jdbc4'
 	//compile 'com.oracle:oracle:10'
 	
     
@@ -67,9 +67,10 @@ dependencies
     providedCompile "javax.servlet:javax.servlet-api:${servletApiVersion}"
     
     //thymeleaf
-	compile 'org.thymeleaf:thymeleaf-spring4:2.1.2.RELEASE'	
-	compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity3:2.1.1.RELEASE'
-	compile 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:1.2.3'
+    //compile 'org.thymeleaf:thymeleaf-spring4:2.1.2.RELEASE'	
+    //compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity3:2.1.1.RELEASE'
+    //compile 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:1.2.3'
+    compile 'org.apache.velocity:velocity:1.7'
 
 	//json
 	compile 'org.codehaus.jackson:jackson-core-asl:1.9.4'
