@@ -14,6 +14,11 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
+	<classpathentry sourcepath="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/4.0.2.RELEASE/3db43b46460bd13ca839605ce4deea42542c61c7/spring-context-support-4.0.2.RELEASE-sources.jar" kind="lib" path="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/4.0.2.RELEASE/e63913dc1c0014dbe69edf14876d3b05c7c14d20/spring-context-support-4.0.2.RELEASE.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
 	<classpathentry sourcepath="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/3.2.1.RELEASE/17f96deedcbf5707ff2c89c679cd5b68335f0bf3/spring-security-web-3.2.1.RELEASE-sources.jar" kind="lib" path="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/3.2.1.RELEASE/9afdb697e1f11c6e75436938e95f1fad26791cc7/spring-security-web-3.2.1.RELEASE.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
@@ -65,6 +70,11 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry sourcepath="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/org.apache.velocity/velocity/1.7/eb11eb70171ed64842b2e5216d5904e21ed162ac/velocity-1.7-sources.jar" kind="lib" path="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/org.apache.velocity/velocity/1.7/2ceb567b8f3f21118ecdec129fe1271dbc09aa7a/velocity-1.7.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/org.apache.velocity/velocity-tools/2.0/69936384de86857018b023a8c56ae0635c56b6a0/velocity-tools-2.0.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
@@ -219,6 +229,51 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
+	<classpathentry sourcepath="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/commons-beanutils/commons-beanutils/1.7.0/b68c4fc66026e8c08df7fb57c7dc1e94a6ed8cbb/commons-beanutils-1.7.0-sources.jar" kind="lib" path="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/commons-beanutils/commons-beanutils/1.7.0/5675fd96b29656504b86029551973d60fb41339b/commons-beanutils-1.7.0.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/commons-digester/commons-digester/1.8/6c296de7dc352e0af9a40f92f5af995314d41fc9/commons-digester-1.8-sources.jar" kind="lib" path="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/commons-digester/commons-digester/1.8/dc6a73fdbd1fa3f0944e8497c6c872fa21dca37e/commons-digester-1.8.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/commons-chain/commons-chain/1.1/2b206037ef7277949a869b6d4f795389e13b4409/commons-chain-1.1-sources.jar" kind="lib" path="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/commons-chain/commons-chain/1.1/3038bd41dcdb2b63b8c6dcc8c15f0fdf3f389012/commons-chain-1.1.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/commons-validator/commons-validator/1.3.1/f6cb785bd9d1b6865637b220d2a596a5505a8241/commons-validator-1.3.1-sources.jar" kind="lib" path="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/commons-validator/commons-validator/1.3.1/d1fd6b1510f25e827adffcf17de3c85fa00e9391/commons-validator-1.3.1.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/oro/oro/2.0.8/3598e790ecd76ff7eb249853d4d00822ae1a5e71/oro-2.0.8-sources.jar" kind="lib" path="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/oro/oro/2.0.8/5592374f834645c4ae250f4c9fbb314c9369d698/oro-2.0.8.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/sslext/sslext/1.2-0/a7d06841a9a2d3222ccb2af8ad7e175d431ab8fe/sslext-1.2-0-sources.jar" kind="lib" path="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/sslext/sslext/1.2-0/c86a7db4ac0bc450e675f3d44b3d64cdc934361b/sslext-1.2-0.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/org.apache.struts/struts-core/1.3.8/4e26791bbf52f6cf2a324216c9429f42e9447695/struts-core-1.3.8-sources.jar" kind="lib" path="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/org.apache.struts/struts-core/1.3.8/66178d4a9279ebb1cd1eb79c10dc204b4199f061/struts-core-1.3.8.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/org.apache.struts/struts-taglib/1.3.8/326cbc8224f3700cba31a88d9418665bc4fdc660/struts-taglib-1.3.8-sources.jar" kind="lib" path="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/org.apache.struts/struts-taglib/1.3.8/e87e9817bdf03c2367fb5f6d5ead953db2df4c21/struts-taglib-1.3.8.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/org.apache.struts/struts-tiles/1.3.8/8c32eb8f1338bddba935f26858e8950f9f976e50/struts-tiles-1.3.8-sources.jar" kind="lib" path="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/org.apache.struts/struts-tiles/1.3.8/6d212f8ea5d908bc9906e669428b7694dff60785/struts-tiles-1.3.8.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
 	<classpathentry sourcepath="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/log4j/log4j/1.2.13/d77ba5661ca05a5eabdaa38c71d3da595318ee7/log4j-1.2.13-sources.jar" kind="lib" path="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/log4j/log4j/1.2.13/8b1b85d04eea979c33109ea42808b7d3f6d355ab/log4j-1.2.13.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
@@ -239,11 +294,6 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/xml-apis/xml-apis/1.0.b2/d8525661c5a0a05702fa41873d250d135031ec25/xml-apis-1.0.b2-sources.jar" kind="lib" path="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/xml-apis/xml-apis/1.0.b2/3136ca936f64c9d68529f048c2618bd356bf85c9/xml-apis-1.0.b2.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
 	<classpathentry sourcepath="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/com.mchange/mchange-commons-java/0.2.3.4/4d2ab8a1f4c2bc0f0809e5d3e316e0f3b32f5a91/mchange-commons-java-0.2.3.4-sources.jar" kind="lib" path="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/com.mchange/mchange-commons-java/0.2.3.4/5eb5a801d96f65912bcf418a831fa23c663b029b/mchange-commons-java-0.2.3.4.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
@@ -254,12 +304,17 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.0.2.RELEASE/9d5526e9c5195f6ba7939af22d965bd4c167e0c3/spring-aop-4.0.2.RELEASE-sources.jar" kind="lib" path="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.0.2.RELEASE/c417ad7320fb99c6f1ed95f92afe2fbc31184151/spring-aop-4.0.2.RELEASE.jar">
+	<classpathentry sourcepath="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/xml-apis/xml-apis/1.0.b2/d8525661c5a0a05702fa41873d250d135031ec25/xml-apis-1.0.b2-sources.jar" kind="lib" path="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/xml-apis/xml-apis/1.0.b2/3136ca936f64c9d68529f048c2618bd356bf85c9/xml-apis-1.0.b2.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
 	<classpathentry sourcepath="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.1.3/28bb0405fddaf04f15058fbfbe01fe2780d7d3b6/commons-logging-1.1.3-sources.jar" kind="lib" path="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.1.3/f6f66e966c70a83ffbdb6f17a0919eaf7c8aca7f/commons-logging-1.1.3.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.0.2.RELEASE/9d5526e9c5195f6ba7939af22d965bd4c167e0c3/spring-aop-4.0.2.RELEASE-sources.jar" kind="lib" path="/home/renanoliveira/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.0.2.RELEASE/c417ad7320fb99c6f1ed95f92afe2fbc31184151/spring-aop-4.0.2.RELEASE.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
