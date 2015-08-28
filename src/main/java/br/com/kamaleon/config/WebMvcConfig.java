@@ -17,6 +17,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.velocity.VelocityConfigurer;
 import org.springframework.web.servlet.view.velocity.VelocityViewResolver;
 
 
@@ -47,16 +48,12 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	}
 	
 	@Bean
-	public VelocityEngine velocityConfig() throws VelocityException, IOException {
-	    VelocityEngineFactoryBean factory = new VelocityEngineFactoryBean();
-		Properties props = new Properties();
-		props.put("resource.loader", "class");
-		props.put("class.resource.loader.class", 
-				  "org.apache.velocity.runtime.resource.loader." + 
-				  "ClasspathResourceLoader");
-		factory.setVelocityProperties(props);
+	public VelocityConfigurer velocityConfig() throws VelocityException, IOException {
+		VelocityConfigurer velocityConfigurer = new VelocityConfigurer();
 		
-		return factory.createVelocityEngine();
+		velocityConfigurer.setResourceLoaderPath("/WEB-INF/views/");
+
+		return velocityConfigurer;
 		
 	}
 	
