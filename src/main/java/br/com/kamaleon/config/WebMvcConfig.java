@@ -53,6 +53,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 		VelocityViewResolver viewResolver = new VelocityViewResolver();
 		viewResolver.setSuffix(".vm");		
+		viewResolver.setPrefix("");
 		viewResolver.setCache(true);
 		return viewResolver;
 	}
