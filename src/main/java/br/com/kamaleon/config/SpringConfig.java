@@ -24,62 +24,59 @@ import java.util.Map;
 @EnableJpaRepositories(basePackages = "br.com.kamaleon.dao")
 @EnableTransactionManagement
 public class SpringConfig {
-   
-    @Bean
-    public ComboPooledDataSource dataSource() throws PropertyVetoException {
 
-        ComboPooledDataSource dataSource = new ComboPooledDataSource();
-        dataSource.setDriverClass("oracle.jdbc.OracleDriver");
-        dataSource.setJdbcUrl("jdbc:oracle:thin:@201.28.44.202:1525:OSCARFULL");
-//        dataSource.setJdbcUrl("jdbc:oracle:thin:@172.16.99.5:1521:OSCARFULL");
-        dataSource.setUser("mstore");
-        dataSource.setPassword("mstore_123_orcl");
-        dataSource.setInitialPoolSize(10);
-        dataSource.setMaxPoolSize(100);
-        dataSource.setMaxIdleTime(60);
-        dataSource.setIdleConnectionTestPeriod(60);
-        dataSource.setAutoCommitOnClose(true);
-		
-        return dataSource;
-    }
+	@Bean
+	public ComboPooledDataSource dataSource() throws PropertyVetoException {
 
-    @Bean
-    public PersistenceExceptionTranslationPostProcessor persistenceExceptionTranslationPostProcessor()
-    {
-        return new PersistenceExceptionTranslationPostProcessor();
-    }
+		ComboPooledDataSource dataSource = new ComboPooledDataSource();
+		dataSource.setDriverClass("org.postgresql.Driver");
+		dataSource.setJdbcUrl("jdbc:postgresql://localhost:5432/teste");
+		dataSource.setUser("postgres");
+		dataSource.setPassword("postgres");
+		dataSource.setInitialPoolSize(10);
+		dataSource.setMaxPoolSize(100);
+		dataSource.setMaxIdleTime(60);
+		dataSource.setIdleConnectionTestPeriod(60);
+		dataSource.setAutoCommitOnClose(true);
+		return dataSource;
+	}
 
-    @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws PropertyVetoException {
-        LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+	@Bean
+	public PersistenceExceptionTranslationPostProcessor persistenceExceptionTranslationPostProcessor()
+	{
+		return new PersistenceExceptionTranslationPostProcessor();
+	}
 
-        HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
-        adapter.setGenerateDdl(true);
-        adapter.setShowSql(true);
-        factory.setJpaVendorAdapter(adapter);
+	@Bean
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws PropertyVetoException {
+		LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
 
-        factory.setDataSource(dataSource());
-        factory.setPackagesToScan("br.com.kamaleon.model");
-        factory.setPersistenceProvider(new HibernatePersistenceProvider());
-        factory.setJpaPropertyMap(jpaPropertyMap());
-        return factory;
-    }
-    
-    public Map<String, String> jpaPropertyMap()
-    {
-        Map<String, String> map = new HashMap<String, String>();
-        map.put("hibernate.dialect", "org.hibernate.dialect.OracleDialect");
-        map.put("hibernate.show_sql", "true");
-        map.put("hibernate.format_sql", "false");
-        map.put("hibernate.hbm2ddl.auto", "none");
-        return map;
-    }
+		HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
+		adapter.setGenerateDdl(true);
+		adapter.setShowSql(true);
+		factory.setJpaVendorAdapter(adapter);
 
-    @Bean
-    public JpaTransactionManager transactionManager() throws PropertyVetoException {
-        JpaTransactionManager manager = new JpaTransactionManager();
-        manager.setEntityManagerFactory(entityManagerFactory().getObject());
-        return manager;
-    }
+		factory.setDataSource(dataSource());
+		factory.setPackagesToScan("br.com.kamaleon.model");
+		factory.setPersistenceProvider(new HibernatePersistenceProvider());
+		factory.setJpaPropertyMap(jpaPropertyMap());
+		return factory;
+	}
 
+	public Map<String, String> jpaPropertyMap()
+	{
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+		map.put("hibernate.show_sql", "true");
+		map.put("hibernate.format_sql", "false");
+		map.put("hibernate.hbm2ddl.auto", "update");
+		return map;
+	}
+
+	@Bean
+	public JpaTransactionManager transactionManager() throws PropertyVetoException {
+		JpaTransactionManager manager = new JpaTransactionManager();
+		manager.setEntityManagerFactory(entityManagerFactory().getObject());
+		return manager;
+	}
 }

@@ -23,6 +23,8 @@ dependencies
     def springVersion = '4.0.2.RELEASE'
     compile "org.springframework:spring-webmvc:${springVersion}"
     compile "org.springframework:spring-orm:${springVersion}"
+    compile "org.springframework:spring-context-support:${springVersion}"
+    
 
     //security
     def securityVersion = '3.2.1.RELEASE'
@@ -37,7 +39,7 @@ dependencies
     def hibernateVersion = '4.3.1.Final'
     compile "org.hibernate:hibernate-entitymanager:${hibernateVersion}"
     compile "org.hibernate:hibernate-c3p0:${hibernateVersion}"
-
+    
     //mysqlDrive
     //def mysqlDriverVersion = '5.1.29'
     //compile "mysql:mysql-connector-java:${mysqlDriverVersion}"
@@ -71,6 +73,7 @@ dependencies
     //compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity3:2.1.1.RELEASE'
     //compile 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:1.2.3'
     compile 'org.apache.velocity:velocity:1.7'
+    //compile 'org.apache.velocity:velocity-tools:2.0'
 
 	//json
 	compile 'org.codehaus.jackson:jackson-core-asl:1.9.4'
