@@ -46,7 +46,8 @@ dependencies
     compile 'org.postgresql:postgresql:9.3-1100-jdbc4'
 	//compile 'com.oracle:oracle:10'
 	
-    
+	//HikariCP
+	compile 'com.zaxxer:HikariCP:2.4.1'
 
     //fileupload
     def fileuploadVersion = '1.3.1'
