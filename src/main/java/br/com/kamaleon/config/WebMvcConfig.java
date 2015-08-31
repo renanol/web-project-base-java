@@ -1,14 +1,15 @@
 package br.com.kamaleon.config;
 
 import java.io.IOException;
-import java.util.Properties;
+import java.util.HashMap;
+import java.util.Map;
 
-import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.exception.VelocityException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.ui.velocity.VelocityEngineFactoryBean;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
@@ -28,6 +29,10 @@ import org.springframework.web.servlet.view.velocity.VelocityViewResolver;
 @EnableWebMvc
 @ComponentScan(basePackages = "br.com.kamaleon.controller")
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
+	
+	@Autowired
+	private ApplicationContext context;
+
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -51,8 +56,16 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	public VelocityConfigurer velocityConfig() throws VelocityException, IOException {
 		VelocityConfigurer velocityConfigurer = new VelocityConfigurer();
 		
-		velocityConfigurer.setResourceLoaderPath("/WEB-INF/views/");
-
+		velocityConfigurer.setResourceLoaderPath("/WEB-INF/views/");		
+		
+		velocityConfigurer.setConfigLocation(context.getResource("/WEB-INF/conf/velocity.properties"));
+		
+		/*Map<String, Object> velocityPropertiesMap = new HashMap<>();
+		
+		velocityPropertiesMap.put("velocimacro.library", "VM_global_library.vm");
+		
+		velocityConfigurer.setVelocityPropertiesMap(velocityPropertiesMap);*/
+		
 		return velocityConfigurer;
 		
 	}
@@ -64,22 +77,19 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		viewResolver.setSuffix(".vm");		
 		viewResolver.setPrefix("");
 		viewResolver.setCache(true);
+		viewResolver.setToolboxConfigLocation("/WEB-INF/conf/toolbox.xml");
 		return viewResolver;
 	}
 	
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
     	
-    	registry.addResourceHandler("/highcharts/**").addResourceLocations("/resources/highcharts/").setCachePeriod(31556926);
-    	registry.addResourceHandler("/highcharts/adapters/**").addResourceLocations("/resources/highcharts/adapters/").setCachePeriod(31556926);
-    	registry.addResourceHandler("/highcharts/modules/**").addResourceLocations("/resources/highcharts/modules/").setCachePeriod(31556926);
-    	registry.addResourceHandler("/highcharts/themes/**").addResourceLocations("/resources/highcharts/themes/").setCachePeriod(31556926);
-        registry.addResourceHandler("/assets/js/**").addResourceLocations("/resources/assets/js/").setCachePeriod(31556926);
+    	registry.addResourceHandler("/assets/js/**").addResourceLocations("/resources/assets/js/").setCachePeriod(31556926);
         registry.addResourceHandler("/assets/css/**").addResourceLocations("/resources/assets/css/").setCachePeriod(31556926);
         registry.addResourceHandler("/assets/img/**").addResourceLocations("/resources/assets/img/").setCachePeriod(31556926);
         registry.addResourceHandler("/assets/font/**").addResourceLocations("/resources/assets/font/").setCachePeriod(31556926);
-        registry.addResourceHandler("/assets/images/**").addResourceLocations("/resources/assets/images/").setCachePeriod(31556926);
-        registry.addResourceHandler("/assets/avatars/**").addResourceLocations("/resources/assets/avatars/").setCachePeriod(31556926);
+        registry.addResourceHandler("/assets/sound/**").addResourceLocations("/resources/assets/sound/").setCachePeriod(31556926);
+        registry.addResourceHandler("/assets/swf/**").addResourceLocations("/resources/assets/swf/").setCachePeriod(31556926);
 
     }
 

@@ -1,0 +1,7 @@
+#macro(cabecalho)
+	#parse("cabecalho.vm")
+#end
+
+#macro(rodape)
+	#parse("rodape.vm")
+#end

@@ -67,7 +67,7 @@ public class SpringConfig {
 	{
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-		map.put("hibernate.show_sql", "true");
+		map.put("hibernate.show_sql", "false");
 		map.put("hibernate.format_sql", "false");
 		map.put("hibernate.hbm2ddl.auto", "update");
 		return map;

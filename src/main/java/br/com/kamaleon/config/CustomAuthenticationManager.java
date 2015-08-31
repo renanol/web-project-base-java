@@ -32,7 +32,7 @@ public class CustomAuthenticationManager implements AuthenticationManager {
 		}
 
 		if (!password.equals(user.getPassword())) {
-			throw new BadCredentialsException("Wrong password.");
+			//throw new BadCredentialsException("Wrong password.");
 		}
 
 		//Collection<? extends GrantedAuthority> authorities = user.getAuthorities();
