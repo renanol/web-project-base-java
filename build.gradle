@@ -43,7 +43,8 @@ dependencies
     //mysqlDrive
     //def mysqlDriverVersion = '5.1.29'
     //compile "mysql:mysql-connector-java:${mysqlDriverVersion}"
-    compile 'org.postgresql:postgresql:9.3-1100-jdbc4'
+    compile 'org.postgresql:postgresql:9.4-1201-jdbc41'
+
 	//compile 'com.oracle:oracle:10'
 	
 	//HikariCP
