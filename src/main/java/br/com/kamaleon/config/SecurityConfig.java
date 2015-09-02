@@ -18,9 +18,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
-	@Autowired
-	private DataSource dataSource;
-	
     @Override
     public void configure(WebSecurity web) throws Exception {
         web
@@ -28,7 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/assets/js/**")
                 .antMatchers("/assets/css/**")
                 .antMatchers("/assets/avatars/**")
-                .antMatchers("/assets/font/**")
+                .antMatchers("/assets/fonts/**")
                 .antMatchers("/assets/img/**")
                 .antMatchers("/assets/images/**")                
                 //.antMatchers("/files/**")
@@ -60,7 +57,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/", "/ws/**",  "/login", "logout", "/assets/js/**", "/assets/css/**", "/assets/avatars/**", "/assets/font/**", "/assets/img/**", "/assets/images/**")
+                .antMatchers("/", "/ws/**",  "/login", "logout", "/assets/js/**", "/assets/css/**", "/assets/avatars/**", "/assets/fonts/**", "/assets/img/**", "/assets/images/**")
                     .permitAll()
             .anyRequest()
                 .authenticated();

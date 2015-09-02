@@ -1,4 +1,4 @@
-#cabecalho()
+#cabecalhoLogin()
 
 
 <form action="login" method="POST">

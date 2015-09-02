@@ -126,28 +126,6 @@ public class ValidadorUniversal implements Serializable {
     	return contemString;
     }
     
-    public static boolean isValorPositivoValido(String valor)
-    {
-    	if(!check(valor))
-    	{
-    		return false;
-    	}
-    	double valorDouble = 0; 
-    	try {
-			valorDouble = FuncoesNumeros.getNumero2DigitosDecimais(valor);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			return false;
-		}
-		
-		if(valorDouble == 0)
-		{
-			return false;
-		}
-		
-		return true;
-    }
-    
     public static boolean checkEmail(String s){
     	boolean validou = false;
     	
@@ -201,7 +179,7 @@ public class ValidadorUniversal implements Serializable {
     }
     
     /**
-     * Verifica se o array de bytes é não-nulo e não-vazio
+     * Verifica se o array de bytes ï¿½ nï¿½o-nulo e nï¿½o-vazio
      */
     public static boolean check(byte[] s)
     {
@@ -295,7 +273,7 @@ public class ValidadorUniversal implements Serializable {
     }
     
     /**
-     * Verifica se a data é válido
+     * Verifica se a data ï¿½ vï¿½lido
      */
     public static boolean isDate(String s, SimpleDateFormat sdf)
     {
@@ -321,7 +299,7 @@ public class ValidadorUniversal implements Serializable {
    
 
     /**
-     * Verifica se a hora é válido
+     * Verifica se a hora ï¿½ vï¿½lido
      */
     public static boolean isHour(String s, SimpleDateFormat sdf)
     {

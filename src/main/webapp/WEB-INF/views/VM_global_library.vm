@@ -1,7 +1,31 @@
-#macro(cabecalho)
+#macro(cabecalhoLogin)
 	#parse("cabecalho.vm")
 #end
 
-#macro(rodape)
+#macro(cabecalhoCadastro)
+
+	#parse("cabecalho.vm")
+	#parse("barra.vm")
+	
+  <!-- Main Container -->
+<div class="main-container container-fluid">
+    <!-- Page Container -->
+    <div class="page-container">
+	
+	#parse("menu.vm")
+	
+	<div class="page-content">
+    	
+	
+#end
+
+#macro(rodapeCadastro)
+			</div>
+		</div>
+	</div>
+	#parse("rodape.vm")
+#end
+
+#macro(rodapeLogin)
 	#parse("rodape.vm")
 #end
