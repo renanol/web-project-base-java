@@ -38,12 +38,12 @@ dependencies
     //hibernate
     def hibernateVersion = '4.3.1.Final'
     compile "org.hibernate:hibernate-entitymanager:${hibernateVersion}"
-    compile "org.hibernate:hibernate-c3p0:${hibernateVersion}"
+    //compile "org.hibernate:hibernate-c3p0:${hibernateVersion}"
     
     //mysqlDrive
     //def mysqlDriverVersion = '5.1.29'
     //compile "mysql:mysql-connector-java:${mysqlDriverVersion}"
-    compile 'org.postgresql:postgresql:9.3-1100-jdbc4'
+    compile 'org.postgresql:postgresql:9.4-1201-jdbc41'
 	//compile 'com.oracle:oracle:10'
 	
 	//HikariCP

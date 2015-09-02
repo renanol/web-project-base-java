@@ -1,8 +1,6 @@
 package br.com.kamaleon.config;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.apache.velocity.exception.VelocityException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,7 +85,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     	registry.addResourceHandler("/assets/js/**").addResourceLocations("/resources/assets/js/").setCachePeriod(31556926);
         registry.addResourceHandler("/assets/css/**").addResourceLocations("/resources/assets/css/").setCachePeriod(31556926);
         registry.addResourceHandler("/assets/img/**").addResourceLocations("/resources/assets/img/").setCachePeriod(31556926);
-        registry.addResourceHandler("/assets/font/**").addResourceLocations("/resources/assets/font/").setCachePeriod(31556926);
+        registry.addResourceHandler("/assets/fonts/**").addResourceLocations("/resources/assets/fonts/").setCachePeriod(31556926);
         registry.addResourceHandler("/assets/sound/**").addResourceLocations("/resources/assets/sound/").setCachePeriod(31556926);
         registry.addResourceHandler("/assets/swf/**").addResourceLocations("/resources/assets/swf/").setCachePeriod(31556926);
 

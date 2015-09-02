@@ -1,8 +1,8 @@
 package br.com.kamaleon.dao;
 
-import br.com.kamaleon.model.Users;
-
 import org.springframework.data.repository.PagingAndSortingRepository;
+
+import br.com.kamaleon.model.Users;
 
 /**
  * Created by @author Renan Oliveira on 08/05/14

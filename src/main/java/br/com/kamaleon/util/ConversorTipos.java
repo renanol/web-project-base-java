@@ -3,7 +3,6 @@ package br.com.kamaleon.util;
 import java.io.Serializable;
 import java.text.NumberFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;

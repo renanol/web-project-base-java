@@ -1,10 +1,10 @@
 package br.com.kamaleon.service;
 
-import br.com.kamaleon.dao.IAuthoritiesDAO;
+import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import br.com.kamaleon.dao.IAuthoritiesDAO;
 
 /**
  * Created by @author Renan Oliveira on 08/05/14
